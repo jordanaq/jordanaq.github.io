@@ -1,0 +1,112 @@
+/* I went with a white page with 775px max so it looked professional, like a piece of paper. Also, I didn't want my tables to be any more stretched */
+body {
+	margin: 2.5% auto 0;
+	padding: 0;
+	
+	/* These are rather professional sans serif fonts */
+	font-family: "Arimo", "Helvetica", sans-serif;
+	max-width: 775px;
+}
+			
+h2 {
+	margin-bottom: 2px;
+}
+			
+hr {
+	margin: 0;
+	padding: 0;
+}
+
+/* All of the non-text table and table element stylings are basically just to make the border */
+table {
+	border-bottom: 1px solid black;
+	text-align: center;
+	margin: 2.5% auto 0;
+	width: 95%;
+}
+			
+td, th {
+	border: 1px solid black;
+	border-right: none;
+	border-bottom: none;
+}
+			
+th {
+	font-weight: normal;
+	background-color: lightgrey;
+	text-align: left;
+	width: 15%;
+}
+
+/* I learned this link styling trick in my interactive multimedia class. You don't really know what is a link on the page, but I linked everything that might be helped by one */
+a {
+	color: inherit;
+	text-decoration: none;
+}
+			
+a:hover {
+	color: grey;
+	transition-duration: 0.2s;
+}
+			
+nav {
+	margin: 10% 0 0;
+	text-align: center;
+}
+
+/* There were not many areas I thought I needed a class, preferring a tag style or an id. I did, however, use at least 4 classes per page still (some were shared over both pages) */			
+.navLink {
+	margin: 0 8.333%;
+}
+			
+.borderCell {
+	border-right: 1px solid black;
+}
+			
+.categories {
+	margin: 5% 0 0;
+}
+			
+.grade {
+	text-align: left;
+	border-right: 1px solid black;
+	padding-left: 1em;
+}
+
+.description {
+	margin-top: -1%;
+}
+
+.lastUp {
+	margin: 5% 0 0;
+	padding: 0;
+	text-align: center;
+}
+			
+#contact {
+	margin-top: 2px;
+}
+			
+#myPhoto {
+	align: center;
+	margin: 0 auto 5%;
+	display: block;
+}
+			
+#objective {
+	margin: 2% 2.5% 0;
+}
+
+#hobbyList {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: relative;
+}
+
+/* Is positioned here as li's are only used in #hobbyList */
+li {
+	margin: 2.5%;
+	display: absolute;
+	left: 50%;
+}
