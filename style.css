@@ -38,7 +38,6 @@ th {
 	width: 15%;
 }
 
-/* I learned this link styling trick in my interactive multimedia class. You don't really know what is a link on the page, but I linked everything that might be helped by one */
 a {
 	color: inherit;
 	text-decoration: none;
@@ -53,13 +52,12 @@ nav {
 	margin: 10% 0 0;
 	text-align: center;
 }
-
-/* There were not many areas I thought I needed a class, preferring a tag style or an id. I did, however, use at least 4 classes per page still (some were shared over both pages) */			
+		
 .navLink {
 	margin: 0 8.333%;
 }
 			
-tr:last-of-type {
+td:last-of-type {
 	border-right: 1px solid black;
 }
 			
@@ -86,27 +84,4 @@ tr:last-of-type {
 #contact {
 	margin-top: 2px;
 }
-			
-#myPhoto {
-	align: center;
-	margin: 0 auto 5%;
-	display: block;
-}
-			
-#objective {
-	margin: 2% 2.5% 0;
-}
-
-#hobbyList {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	display: relative;
-}
-
-/* Is positioned here as li's are only used in #hobbyList */
-li {
-	margin: 2.5%;
-	display: absolute;
-	left: 50%;
-}
+		
