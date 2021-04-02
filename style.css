@@ -22,6 +22,10 @@ table {
 	margin: 2.5% auto 0;
 	width: 95%;
 }
+
+td, th {
+	border: 1px solid black;
+}
 			
 th {
 	font-weight: normal;
