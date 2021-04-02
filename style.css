@@ -16,17 +16,11 @@ hr {
 }
 
 table {
-	border-bottom: 1px solid black;
-	border-right: 1px solid black;
+	border: 1px solid black;
+	border-collapse: collapse;
 	text-align: center;
 	margin: 2.5% auto 0;
 	width: 95%;
-}
-			
-td, th {
-	border: 1px solid black;
-	border-right: none;
-	border-bottom: none;
 }
 			
 th {
