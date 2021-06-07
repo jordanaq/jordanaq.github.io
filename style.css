@@ -21,14 +21,18 @@ table {
 	text-align: center;
 	margin: 2.5% auto 0;
 	width: 95%;
+	table-layout: fixed;
 }
 
+td {
+
+}
 td, th {
 	border: 1px solid black;
 }
 			
 th {
-	vertical-align: bottom;
+	vertical-align: top;
 	font-weight: normal;
 	background-color: lightgrey;
 	text-align: left;
@@ -73,15 +77,24 @@ nav {
 
 .separator > td {
 	border: 0;
+	width: 0;
 }
 
 .contTable {
-	margin-top: 0;
+	border-collapse: collapse;
+	text-align: center;
+	width: 95%;
+	margin: 0.5mm auto 0;
+	border-width: 0;
+	table-layout: fixed;
 }
 
 .contRow {
-	margin-top: -1px;
-	border-top: 0;
+	border-collapse: collapse;
+	text-align: center;
+	width: 95%;
+	margin: -1px auto 0;
+	border-width: 0;
 }
 			
 #contact {
