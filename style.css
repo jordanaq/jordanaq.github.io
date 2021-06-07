@@ -65,6 +65,16 @@ nav {
 .description {
 	margin-top: -1%;
 }
+
+.seperator {
+	border-left: 0;
+	border-right: 0;
+}
+
+.seperator > td {
+	border-left: 0;
+	border-right: 0;
+}
 			
 #contact {
 	margin-top: 2px;
