@@ -2,7 +2,7 @@ body {
 	margin: 2.5% auto 0;
 	padding: 0;
 	
-	font-family: "Arimo", "Railway", "Helvetica", sans-serif;
+	font-family: "Arimo", "Helvetica", sans-serif;
 	max-width: 775px;
 }
 			
@@ -20,11 +20,6 @@ hr {
 
 ul {
 	margin: 0 auto;
-}
-
-li {
-	margin: 0 auto;
-	padding: 0;
 }
 
 table {
