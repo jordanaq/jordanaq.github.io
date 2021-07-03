@@ -2,7 +2,7 @@ body {
 	margin: 2.5% auto 0;
 	padding: 0;
 	
-	font-family: "Arimo", "Helvetica", sans-serif;
+	font-family: "Arimo", "Railway", "Helvetica", sans-serif;
 	max-width: 775px;
 }
 			
@@ -16,6 +16,14 @@ h3 {
 			
 hr {
 	margin: 0;
+}
+
+ul {
+	margin: 0 auto;
+}
+
+li {
+	margin: 0 auto;
 	padding: 0;
 }
 
@@ -36,7 +44,7 @@ td, th {
 }
 			
 th {
-	vertical-align: top;
+	vertical-align: center;
 	font-weight: normal;
 	background-color: lightgrey;
 	text-align: left;
