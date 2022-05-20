@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="{{description}}" />
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+    <base target="_blank" />
+</head>
+<body>
+<header>
+    <h2>Jordan Quinn</h2>
+    <hr/>
+    <p id="contact">
+        Pittsburgh, Pennsylvania &vert;
+        <a href="mailto:quinn.jordan@protonmail.ch">quinn.jordan@protonmail.ch</a> &vert;
+        <a href="https://www.github.com/jordanaq/">github.com/jordanaq</a> &vert;
+        <a href="https://www.linkedin.com/in/jordanaq/">linkedin.com/in/jordanaq/</a>
+    </p>
+</header>
+
+{% block content %}
+{% endblock %}
+
+<footer>
+    <nav>
+        <a class="navLink" href="https://www.github.com/jordanaq/">GitHub</a> &vert;
+        <a class="navLink" href="https://www.linkedin.com/in/jordanaq/">LinkedIn</a> &vert;
+        <a class="navLink" href="#top" target="_self">Top</a>
+    </nav>
+</footer>
+</body>
+</html>
