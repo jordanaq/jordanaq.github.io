@@ -1,0 +1,740 @@
+<!-- resume extends the base template and implements relevant blocks -->
+
+<!-- Base jinja2 template -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+
+    <!-- Let children or render_template functions assign name and description -->
+    <title>Resume</title>
+    <meta name="description" content="Jordan Quinn&#39;s Resume. Contins information onschooling, certification, skills, and societies." />
+    <link rel="stylesheet" href="static/style.css" />
+    <base target="_blank" />
+</head>
+<body>
+
+<!-- Create a header with my personal and contact information -->
+<header>
+    <h2>Jordan Quinn</h2>
+    <hr/>
+    <p id="contact">
+        Pittsburgh, Pennsylvania &vert;
+        <a href="mailto:quinn.jordan@protonmail.ch">quinn.jordan@protonmail.ch</a> &vert;
+        <a href="https://www.github.com/jordanaq/">github.com/jordanaq</a> &vert;
+        <a href="https://www.linkedin.com/in/jordanaq/">linkedin.com/in/jordanaq/</a>
+    </p>
+</header>
+
+
+<!-- Create block as placeholder for content -->
+
+    <!-- The SUMMARY section contains a brief summary of me and my interests -->
+    <section class="categories">
+        <h3>SUMMARY</h3>
+        <p>Self-motivated computer science student with a passion for studying the latest
+            and most influential development technologies. Demonstrable experience in and confidence with C++, Elixir,
+            Python, C#, .NET, data structures, and various code editors and productivity tools.</p>
+    </section>
+
+
+    <!-- EDUCATION reviews my formal education and credentials -->
+    <section class="categories">
+        <h3>EDUCATION</h3>
+
+
+        <!-- Iterates over a list of schools to display relevant information -->
+        
+        <div>
+            <!-- Name, link to, and display attendance years for a school -->
+            <h4><a href="">Rochester Institute of Technology</a> (2022 -
+                    )</h4>
+
+            <!-- Display all programs at school s -->
+            <ul class="program">
+            
+                <li class="program">B.S. Computer Science</li>
+            
+            </ul>
+
+            <!-- Display description if available -->
+            
+
+            <!-- Display classes for each term available -->
+            
+        
+        <div>
+            <!-- Name, link to, and display attendance years for a school -->
+            <h4><a href="">Pitt Community College</a> (2021 -
+                    2022)</h4>
+
+            <!-- Display all programs at school s -->
+            <ul class="program">
+            
+                <li class="program">A.A.S. Information Technology: Computer Programming and Development</li>
+            
+                <li class="program">C# Programming Certificate</li>
+            
+                <li class="program">Data Reporting and Analytics Certificate</li>
+            
+                <li class="program">JAVA Programming Certificate</li>
+            
+            </ul>
+
+            <!-- Display description if available -->
+            <p>GPA: 4.0, Dean&#39;s List Spring 2021, Summer 2021, Fall 2021, Spring 2022</p>
+
+            <!-- Display classes for each term available -->
+            
+                <h5>Fall 2021:</h5>
+
+                <ul>
+                    <!-- Iterate through a list of classes -->
+                    
+                        <li class="indent">Advanced C# Programming</li>
+                    
+                        <li class="indent">Computing Fundamentals I</li>
+                    
+                        <li class="indent">JAVA Programming</li>
+                    
+                        <li class="indent">Linux/UNIX Single User</li>
+                    
+                        <li class="indent">Project Management</li>
+                    
+                        <li class="indent">Systems Analysis &amp; Design</li>
+                    
+                </ul>
+            </div>
+            
+                <h5>Fall 2022:</h5>
+
+                <ul>
+                    <!-- Iterate through a list of classes -->
+                    
+                        <li class="indent">Database Programming I</li>
+                    
+                </ul>
+            </div>
+            
+                <h5>Spring 2021:</h5>
+
+                <ul>
+                    <!-- Iterate through a list of classes -->
+                    
+                        <li class="indent">Art Appreciation</li>
+                    
+                        <li class="indent">C# Programming</li>
+                    
+                        <li class="indent">Information Systems Business Concepts</li>
+                    
+                        <li class="indent">Network &amp; Security Foundation</li>
+                    
+                        <li class="indent">Simulation and Game Development Programming</li>
+                    
+                        <li class="indent">Web, Programming, and Databases</li>
+                    
+                </ul>
+            </div>
+            
+                <h5>Spring 2022:</h5>
+
+                <ul>
+                    <!-- Iterate through a list of classes -->
+                    
+                        <li class="indent">Advanced JAVA Programming</li>
+                    
+                        <li class="indent">Database Concepts</li>
+                    
+                        <li class="indent">Introduction to Ethics</li>
+                    
+                        <li class="indent">Programming Capstone Project</li>
+                    
+                        <li class="indent">Python Programming</li>
+                    
+                        <li class="indent">Spreadsheets</li>
+                    
+                </ul>
+            </div>
+            
+                <h5>Summer 2021:</h5>
+
+                <ul>
+                    <!-- Iterate through a list of classes -->
+                    
+                        <li class="indent">College Student Success</li>
+                    
+                        <li class="indent">C++ Programming</li>
+                    
+                        <li class="indent">Introduction to Computers</li>
+                    
+                        <li class="indent">Professional Practices in IT</li>
+                    
+                </ul>
+            </div>
+            
+        
+        <div>
+            <!-- Name, link to, and display attendance years for a school -->
+            <h4><a href="">Slippery Rock University</a> (2018 -
+                    2022)</h4>
+
+            <!-- Display all programs at school s -->
+            <ul class="program">
+            
+            </ul>
+
+            <!-- Display description if available -->
+            <p>GPA: 4.0, Attended twice: Fall 2018-Spring 2019, Winter 2021-Spring 2022</p>
+
+            <!-- Display classes for each term available -->
+            
+                <h5>Fall 2018:</h5>
+
+                <ul>
+                    <!-- Iterate through a list of classes -->
+                    
+                        <li class="indent">Calculus II</li>
+                    
+                        <li class="indent">Programming Principles</li>
+                    
+                </ul>
+            </div>
+            
+                <h5>Spring 2019:</h5>
+
+                <ul>
+                    <!-- Iterate through a list of classes -->
+                    
+                        <li class="indent">Chinese 101</li>
+                    
+                        <li class="indent">Interactive Multimedia 2</li>
+                    
+                </ul>
+            </div>
+            
+                <h5>Spring 2022:</h5>
+
+                <ul>
+                    <!-- Iterate through a list of classes -->
+                    
+                        <li class="indent">University Physics 1 with Lab</li>
+                    
+                </ul>
+            </div>
+            
+                <h5>Winter 2021:</h5>
+
+                <ul>
+                    <!-- Iterate through a list of classes -->
+                    
+                        <li class="indent">Introduction Chemistry I</li>
+                    
+                </ul>
+            </div>
+            
+        
+    </section>
+
+
+    <!-- CERTIFICATES AND SPECIALIZED TRAINING contains certificates earned and training that awarded credentials -->
+    <section class="categories">
+        <h3>CERTIFICATES AND SPECIALIZED TRAINING</h3>
+
+
+        <!-- Iterate over a list of certificate/training categories -->
+        
+            <h4>
+                <!-- Display the category name -->
+                
+                    <a href="https://www.educative.io/verify-certificate/r0w3pLtnXYkROnNJKix5ZOjgZmB5u6">Educative&#39;s Python for Programmers</a>
+                
+
+                <!-- Display date information if such is associated with the category -->
+                
+                    (2021)
+                
+            </h4>
+
+            <ul>
+                <!-- Iterate over and display information for each certificate/training associated with said category -->
+                
+                    <li class="indent">
+                        
+                            Advanced Concepts in Python
+                        
+                    </li>
+                
+                    <li class="indent">
+                        
+                            Data Structures and Algorithms in Python
+                        
+                    </li>
+                
+                    <li class="indent">
+                        
+                            Object-Oriented Programming in Python
+                        
+                    </li>
+                
+                    <li class="indent">
+                        
+                            Python for Programmers
+                        
+                    </li>
+                
+            </ul>
+        
+            <h4>
+                <!-- Display the category name -->
+                
+                    <a href="https://www.educative.io/verify-certificate/MjprXLCk4EXXB07yKIR7EoQKEq07IZ">Educative&#39;s C++ for Programmers</a>
+                
+
+                <!-- Display date information if such is associated with the category -->
+                
+                    (2021)
+                
+            </h4>
+
+            <ul>
+                <!-- Iterate over and display information for each certificate/training associated with said category -->
+                
+                    <li class="indent">
+                        
+                            C++ Basics
+                        
+                    </li>
+                
+                    <li class="indent">
+                        
+                            Concurrency with Modern C++
+                        
+                    </li>
+                
+                    <li class="indent">
+                        
+                            C++ Standard Library
+                        
+                    </li>
+                
+                    <li class="indent">
+                        
+                            Embedded Programming
+                        
+                    </li>
+                
+                    <li class="indent">
+                        
+                            Object-Oriented Programming in C++
+                        
+                    </li>
+                
+                    <li class="indent">
+                        
+                            Templates in C++
+                        
+                    </li>
+                
+            </ul>
+        
+            <h4>
+                <!-- Display the category name -->
+                
+                    <a href="https://credentials.edx.org/credentials/c938fe5ee3934afd99900886df70f473/">DartmouthX and IMTx&#39;s C Programming with Linux</a>
+                
+
+                <!-- Display date information if such is associated with the category -->
+                
+                    (2021)
+                
+            </h4>
+
+            <ul>
+                <!-- Iterate over and display information for each certificate/training associated with said category -->
+                
+                    <li class="indent">
+                        
+                            <a href="https://courses.edx.org/certificates/a7cfc56fb17b40dfbff013f1032ca1fc">C Programming: Advanced Data Types</a>
+                        
+                    </li>
+                
+                    <li class="indent">
+                        
+                            <a href="https://courses.edx.org/certificates/73a231f665dd4e228ebd82c1c751059e">C Programming: Getting Started</a>
+                        
+                    </li>
+                
+                    <li class="indent">
+                        
+                            <a href="https://courses.edx.org/certificates/35e8894105264f5ea7fa92721404d0f1">C Programming: Language Foundations</a>
+                        
+                    </li>
+                
+                    <li class="indent">
+                        
+                            <a href="https://courses.edx.org/certificates/5d3a701a698a463e864c3a0ad2dfe92a">C Programming: Modular Programming and Memory Management</a>
+                        
+                    </li>
+                
+                    <li class="indent">
+                        
+                            <a href="https://courses.edx.org/certificates/5fb0ccb4bd2f41e897774984f6068e93">C Programming: Pointers and Memory Management</a>
+                        
+                    </li>
+                
+                    <li class="indent">
+                        
+                            <a href="https://courses.edx.org/certificates/c1f77f1b0ac84f04b77f7d5859d93552">C Programming: Using Linux Tools and Libraries</a>
+                        
+                    </li>
+                
+                    <li class="indent">
+                        
+                            <a href="https://courses.edx.org/certificates/63ef88efe7af480691569d3769f9fb77">Linux Basics: The Command Line Interface</a>
+                        
+                    </li>
+                
+            </ul>
+        
+            <h4>
+                <!-- Display the category name -->
+                
+                    Oracle Academy
+                
+
+                <!-- Display date information if such is associated with the category -->
+                
+                    (2022)
+                
+            </h4>
+
+            <ul>
+                <!-- Iterate over and display information for each certificate/training associated with said category -->
+                
+                    <li class="indent">
+                        
+                            <a href="https://github.com/jordanaq/jordanaq.github.io/blob/89e8f27e0b10adec5f00d1459eb8c06f71dabd1c/Oracle%20Academy%20Database%20Design%20Certificate.pdf">Database Design</a>
+                        
+                    </li>
+                
+            </ul>
+        
+            <h4>
+                <!-- Display the category name -->
+                
+                    Educative Course Certificates: Programming Strategies
+                
+
+                <!-- Display date information if such is associated with the category -->
+                
+                    (2022)
+                
+            </h4>
+
+            <ul>
+                <!-- Iterate over and display information for each certificate/training associated with said category -->
+                
+                    <li class="indent">
+                        
+                            C++ Concepts: Improve Type Safety with C++ 20
+                        
+                    </li>
+                
+                    <li class="indent">
+                        
+                            <a href="https://www.educative.io/verify-certificate/GZjlABC0JW0p6x2J0CWMgZkjgP6MSm">Learn Functional Programming with Elixir</a>
+                        
+                    </li>
+                
+                    <li class="indent">
+                        
+                            <a href="https://www.educative.io/verify-certificate/585DM2tp9RGWoxK01U935DxW5Aq3uq">Secure Coding Practices in C++: A Deep Dive into const</a>
+                        
+                    </li>
+                
+            </ul>
+        
+            <h4>
+                <!-- Display the category name -->
+                
+                    Educative Course Certificates: Programming Languages
+                
+
+                <!-- Display date information if such is associated with the category -->
+                
+                    (2021)
+                
+            </h4>
+
+            <ul>
+                <!-- Iterate over and display information for each certificate/training associated with said category -->
+                
+                    <li class="indent">
+                        
+                            <a href="https://www.educative.io/verify-certificate/0g6xMWFYGjgN09RWJT9Rk1OnkBgRuP">An Introduction to Programming in Go</a>
+                        
+                    </li>
+                
+                    <li class="indent">
+                        
+                            <a href="https://www.educative.io/verify-certificate/O7rwGNTw4z5wWD9q9uwN0DP30RMNuB">C++17 in Detail: A Deep Dive</a>
+                        
+                    </li>
+                
+                    <li class="indent">
+                        
+                            <a href="https://www.educative.io/verify-certificate/0g6xMWF4g0yZ0WnVKf9Rk1OnkBgRuP">Functional Programming with ReasonML</a>
+                        
+                    </li>
+                
+                    <li class="indent">
+                        
+                            <a href="https://www.educative.io/verify-certificate/P1vxGOtZ7q35WYpMvSWJ4X674VgJSl">Learn Object-Oriented Programming in JavaScript</a>
+                        
+                    </li>
+                
+                    <li class="indent">
+                        
+                            <a href="https://www.educative.io/verify-certificate/zmG3AWTxR8ENEnG3qH7nkyoOkxvnf7">Learn Scala from Scratch</a>
+                        
+                    </li>
+                
+                    <li class="indent">
+                        
+                            <a href="https://www.educative.io/verify-certificate/k5m3gACo3Kwlm2Z1YuD4B6JgBrZ4In">The All-in-One Guide to C++20</a>
+                        
+                    </li>
+                
+            </ul>
+        
+            <h4>
+                <!-- Display the category name -->
+                
+                    Educative Course Certificates: Functional Programming
+                
+
+                <!-- Display date information if such is associated with the category -->
+                
+                    (2021)
+                
+            </h4>
+
+            <ul>
+                <!-- Iterate over and display information for each certificate/training associated with said category -->
+                
+                    <li class="indent">
+                        
+                            <a href="https://www.educative.io/verify-certificate/PYYRVrQ7nnVtZQ7VDD9WE8hWJ4X674VgJSl">Functional Programming Patterns With RamdaJS!</a>
+                        
+                    </li>
+                
+                    <li class="indent">
+                        
+                            <a href="https://www.educative.io/verify-certificate/N8vowV10v78TPvvqEZ8mkVI8xnErJn7vxF2">Learn Functional Programming in Haskell</a>
+                        
+                    </li>
+                
+                    <li class="indent">
+                        
+                            <a href="https://www.educative.io/verify-certificate/NxqvGMSPxXEqpAj2VH8xnErJn7vxF2">Learn Functional Programming in Python</a>
+                        
+                    </li>
+                
+            </ul>
+        
+            <h4>
+                <!-- Display the category name -->
+                
+                    Educative Course Certificates: Miscellaneous
+                
+
+                <!-- Display date information if such is associated with the category -->
+                
+                    (2021)
+                
+            </h4>
+
+            <ul>
+                <!-- Iterate over and display information for each certificate/training associated with said category -->
+                
+                    <li class="indent">
+                        
+                            <a href="https://www.educative.io/verify-certificate/lpo65vPLonmuPy7M9XQ2ByTNvoE1kol7vhM">Competitive Programming in C++: The Keys to Success</a>
+                        
+                    </li>
+                
+                    <li class="indent">
+                        
+                            <a href="https://www.educative.io/verify-certificate/8q5JgjuPEq7novVLlT9VNXoONyLVug">Docker for Developers</a>
+                        
+                    </li>
+                
+                    <li class="indent">
+                        
+                            <a href="https://www.educative.io/verify-certificate/l8yXX68o8pQhkRV5yL1xqATNvoE1kol7vhM">Initializing Data Members: From C++11 till C++20</a>
+                        
+                    </li>
+                
+                    <li class="indent">
+                        
+                            <a href="https://www.educative.io/verify-certificate/LgoqGKFmXm3RXGVRWh54l2j6lk04hD">Metaprogramming in Elixir</a>
+                        
+                    </li>
+                
+                    <li class="indent">
+                        
+                            <a href="https://www.educative.io/verify-certificate/Exw6zz9ymKATg0m6Ryx4zjh4D7jZY7L1DuG">Regular Expressions for Programmers</a>
+                        
+                    </li>
+                
+            </ul>
+        
+            <h4>
+                <!-- Display the category name -->
+                
+                    Educative Course Certificates: Miscellaneous
+                
+
+                <!-- Display date information if such is associated with the category -->
+                
+                    (2022)
+                
+            </h4>
+
+            <ul>
+                <!-- Iterate over and display information for each certificate/training associated with said category -->
+                
+                    <li class="indent">
+                        
+                            <a href="https://www.educative.io/verify-certificate/8q5JgjuBzkr5mRPRDH9VNXoONyLVug">Flask: Develop Web Applications in Python</a>
+                        
+                    </li>
+                
+            </ul>
+        
+    </section>
+
+
+    <!-- TECHNICAL EXPERTISE AND SOFTWARE lists technologies/languages/software/etc. that I have experience or confidence with-->
+    <section class="categories">
+        <h3>TECHNICAL EXPERTISE AND SOFTWARE</h3>
+
+
+        <!-- Iterates over each category of expertise -->
+        
+            <!-- names the category and capitalizes it -->
+            <h4>Technology</h4>
+
+            <!-- Iterates over each item of said category -->
+            <ul class="condensed">
+                
+                    <li>Bash</li>
+                
+                    <li>CSS</li>
+                
+                    <li>Docker</li>
+                
+                    <li>Flask</li>
+                
+                    <li>Git</li>
+                
+                    <li>HTML</li>
+                
+                    <li>jinja2</li>
+                
+                    <li>Linux</li>
+                
+                    <li>Ramda</li>
+                
+                    <li>RegEx</li>
+                
+                    <li>SQL</li>
+                
+            </ul>
+        
+            <!-- names the category and capitalizes it -->
+            <h4>Software</h4>
+
+            <!-- Iterates over each item of said category -->
+            <ul class="condensed">
+                
+                    <li>Atom</li>
+                
+                    <li>GitHub</li>
+                
+                    <li>JetBrains Suite</li>
+                
+                    <li>Microsoft Office</li>
+                
+                    <li>Notepad++</li>
+                
+                    <li>Vim</li>
+                
+                    <li>Visual Studio</li>
+                
+                    <li>Visual Studio Code</li>
+                
+            </ul>
+        
+            <!-- names the category and capitalizes it -->
+            <h4>Language</h4>
+
+            <!-- Iterates over each item of said category -->
+            <ul class="condensed">
+                
+                    <li>C</li>
+                
+                    <li>C#</li>
+                
+                    <li>C++</li>
+                
+                    <li>Clojure</li>
+                
+                    <li>Elixir</li>
+                
+                    <li>Go</li>
+                
+                    <li>Haskell</li>
+                
+                    <li>Java</li>
+                
+                    <li>JavaScript</li>
+                
+                    <li>Python</li>
+                
+                    <li>Scala</li>
+                
+            </ul>
+        
+    </section>
+
+
+    <!-- ACADEMIC AND PROFESSIONAL SOCIETIES lists and describes such societies -->
+    <section class="categories">
+        <h4>ACADEMIC AND PROFESSIONAL SOCIETIES</h4>
+
+
+        <!-- Iterates through a list of societies and displays relevant information -->
+        
+        <p>
+            <strong>Phi Theta Kappa Honor Society</strong>
+            (2021 - )
+            <br />Beta Nu Upsilon Chapter
+        </p>
+        
+
+    </section>
+
+
+
+<!-- Footer with links -->
+<footer>
+    <nav>
+        <a class="navLink" href="https://www.github.com/jordanaq/">GitHub</a> &vert;
+        <a class="navLink" href="https://www.linkedin.com/in/jordanaq/">LinkedIn</a> &vert;
+        <a class="navLink" href="#top" target="_self">Top</a>
+    </nav>
+</footer>
+</body>
+</html>

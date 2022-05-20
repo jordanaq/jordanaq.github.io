@@ -1,13 +1,14 @@
 from flask_sqlalchemy import SQLAlchemy
-from flask import url_for
 from sqlalchemy import null, Integer, String, Date, ForeignKey
-from datetime import date, datetime
-from typing import List, Dict
+from typing import Dict
 from functools import reduce
 
+
+# Create a SQLAlchemy object to hold and derive models
 db = SQLAlchemy()
 
 
+# The semester object is a wrapper for a semester name and an object describing that semester's classes
 class Semester:
     def __init__(self, name, classes):
         self.name = name
@@ -26,6 +27,7 @@ class School(db.Model):
     finish = db.Column(Date, nullable=True)
     description = db.Column(String(1024), nullable=True)
 
+    # semesters returns a list containing semester objects for each semester of classes at School object self
     def semesters(self):
         ret = []
 
@@ -37,12 +39,14 @@ class School(db.Model):
 
         return ret
 
+    # Returns all programs associated with School object self
     def programs(self):
         return Program.query.filter_by(school_id=self.id).all()
 
     def __repr__(self):
         return f'{self.id}:{self.name}:{self.start}:{self.finish}:{self.description}'
 
+    # Takes a Dict as an argument and adds a new School object using data from this dict
     @staticmethod
     def insert_value(value: Dict):
         if School.query.filter_by(name=value.get('name')).first() is None:
@@ -50,11 +54,13 @@ class School(db.Model):
                                   start=value.get('start', null()), finish=value.get('finish', null()),
                                   description=value.get('description', null())))
 
+    # Returns all schools in descending attendance date order
     @staticmethod
     def get_all():
-        return School.query.order_by(School.id.asc()).all()
+        return School.query.order_by(School.start.desc()).all()
 
 
+# Table to hold programs taken at a School
 class Program(db.Model):
     __tablename__ = 'program'
     school_id = db.Column(Integer, ForeignKey(School.id), primary_key=True)
@@ -63,6 +69,7 @@ class Program(db.Model):
     def __repr__(self):
         return f'{self.school_id}:{self.name}'
 
+    # Takes a Dict as an argument and adds a new Program object using data from this dict
     @staticmethod
     def insert_value(value: Dict):
         if Program.query.filter_by(school_id=value.get('school_id'), name=value.get('name')).first() is None:
@@ -80,10 +87,11 @@ class Classes(db.Model):
     def __repr__(self):
         return f'{self.id}:{self.name}:{self.term}:{self.school_id}'
 
+    # Takes a Dict as an argument and adds a new class object using data from this dict
     @staticmethod
     def insert_value(value: Dict):
         if i := Classes.query.filter_by(name=value.get('name'), term=value.get('term'),
-                                   school_id=value.get('school_id')).first() is None:
+                                        school_id=value.get('school_id')).first() is None:
             db.session.add(Classes(name=value.get('name'), term=value.get('term', null()),
                                    school_id=value.get('school_id', null())))
 
@@ -97,18 +105,21 @@ class CertCategory(db.Model):
     finish = db.Column(Date, nullable=False)
     db.UniqueConstraint(name, finish)
 
+    # Returns an object containing certifications corresponding to self.id
     def items(self):
         return Certification.query.filter_by(category=self.id).order_by(Certification.name).all()
 
     def __repr__(self):
         return f'{self.id}:{self.name}:{self.link}:{self.finish}'
 
+    # Takes a Dict as an argument and adds a new CertCategory object using data from this dict
     @staticmethod
     def insert_value(value: Dict):
         if CertCategory.query.filter_by(name=value.get('name'), finish=value.get('finish')).first() is None:
             db.session.add(CertCategory(name=value.get('name'), link=value.get('link', null()),
                                         finish=value.get('finish', null())))
 
+    # Returns all CertCategory rows in order of ascending id number
     @staticmethod
     def get_all():
         return CertCategory.query.order_by(CertCategory.id.asc()).all()
@@ -127,6 +138,7 @@ class Certification(db.Model):
     def __repr__(self):
         return f'{self.id}:{self.name}:{self.category}:{self.finish}:{self.link}:{self.description}'
 
+    # Takes a Dict as an argument and adds a new Certification object using data from this dict
     @staticmethod
     def insert_value(value: Dict):
         if Certification.query.filter_by(name=value.get('name'), finish=value.get('finish')).first() is None:
@@ -165,6 +177,7 @@ class Skill(db.Model):
     def __repr__(self):
         return f'{self.category}:{self.name}'
 
+    # Takes a Dict as an argument and adds a new Skill object using data from this dict
     @staticmethod
     def insert_value(value: Dict):
         if Skill.query.filter_by(name=value.get('name'), category=value.get('category')).first() is None:
@@ -183,12 +196,14 @@ class Society(db.Model):
     def __repr__(self):
         return f'{self.id}:{self.name}:{self.chapter}:{self.start}:{self.finish}'
 
+    # Takes a Dict as an argument and adds a new Society object using data from this dict
     @staticmethod
     def insert_value(value: Dict):
         if Society.query.filter_by(name=value.get('name'), start=value.get('start')).first() is None:
             db.session.add(Society(name=value.get('name'), start=value.get('start', null()),
                                    finish=value.get('finish', null()), chapter=value.get('chapter', null())))
 
+    # Returns an object containing all Society rows in order of ascending name
     @staticmethod
     def get_all():
         return Society.query.order_by(Society.name.asc()).all()

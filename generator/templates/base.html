@@ -1,13 +1,19 @@
+<!-- Base jinja2 template -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
+
+    <!-- Let children or render_template functions assign name and description -->
     <title>{% block title %}{% endblock %}</title>
     <meta name="description" content="{{description}}" />
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
     <base target="_blank" />
 </head>
 <body>
+
+<!-- Create a header with my personal and contact information -->
 <header>
     <h2>Jordan Quinn</h2>
     <hr/>
@@ -19,9 +25,13 @@
     </p>
 </header>
 
+
+<!-- Create block as placeholder for content -->
 {% block content %}
 {% endblock %}
 
+
+<!-- Footer with links -->
 <footer>
     <nav>
         <a class="navLink" href="https://www.github.com/jordanaq/">GitHub</a> &vert;

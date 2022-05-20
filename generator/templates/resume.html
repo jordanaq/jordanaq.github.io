@@ -1,0 +1,129 @@
+<!-- resume extends the base template and implements relevant blocks -->
+
+{% extends "base.html" %}
+
+<!-- Set the page title -->
+{% block title %}Resume{% endblock %}
+
+<!-- Specify the block contents -->
+{% block content %}
+    <!-- The SUMMARY section contains a brief summary of me and my interests -->
+    <section class="categories">
+        <h3>SUMMARY</h3>
+        <p>Self-motivated computer science student with a passion for studying the latest
+            and most influential development technologies. Demonstrable experience in and confidence with C++, Elixir,
+            Python, C#, .NET, data structures, and various code editors and productivity tools.</p>
+    </section>
+
+
+    <!-- EDUCATION reviews my formal education and credentials -->
+    <section class="categories">
+        <h3>EDUCATION</h3>
+
+
+        <!-- Iterates over a list of schools to display relevant information -->
+        {% for s in schools %}
+        <div>
+            <!-- Name, link to, and display attendance years for a school -->
+            <h4><a href="{{ s.link }}">{{ s.name }}</a> ({{ s.start.strftime("%Y") }} -
+                    {% if s.finish %}{{ s.finish.strftime("%Y") }}{% endif %})</h4>
+
+            <!-- Display all programs at school s -->
+            <ul class="program">
+            {% for i in s.programs() %}
+                <li class="program">{{ i.name }}</li>
+            {% endfor %}
+            </ul>
+
+            <!-- Display description if available -->
+            {% if s.description %}<p>{{ s.description }}</p>{% endif %}
+
+            <!-- Display classes for each term available -->
+            {% for term in s.semesters() %}
+                <h5>{{ term.name }}:</h5>
+
+                <ul>
+                    <!-- Iterate through a list of classes -->
+                    {% for c in term.classes %}
+                        <li class="indent">{{ c.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        {% endfor %}
+    </section>
+
+
+    <!-- CERTIFICATES AND SPECIALIZED TRAINING contains certificates earned and training that awarded credentials -->
+    <section class="categories">
+        <h3>CERTIFICATES AND SPECIALIZED TRAINING</h3>
+
+
+        <!-- Iterate over a list of certificate/training categories -->
+        {% for category in certificates %}
+            <h4>
+                <!-- Display the category name -->
+                {% if category.link %}
+                    <a href="{{ category.link }}">{{ category.name }}</a>
+                {% else %}
+                    {{ category.name }}
+                {% endif %}
+
+                <!-- Display date information if such is associated with the category -->
+                {% if category.finish %}
+                    ({{ category.finish.strftime("%Y") }})
+                {% endif %}
+            </h4>
+
+            <ul>
+                <!-- Iterate over and display information for each certificate/training associated with said category -->
+                {% for i in category.items() %}
+                    <li class="indent">
+                        {% if i.link %}
+                            <a href="{{ i.link }}">{{ i.name }}</a>
+                        {% else %}
+                            {{ i.name }}
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </section>
+
+
+    <!-- TECHNICAL EXPERTISE AND SOFTWARE lists technologies/languages/software/etc. that I have experience or confidence with-->
+    <section class="categories">
+        <h3>TECHNICAL EXPERTISE AND SOFTWARE</h3>
+
+
+        <!-- Iterates over each category of expertise -->
+        {% for category in expertise %}
+            <!-- names the category and capitalizes it -->
+            <h4>{{ category.name.title() }}</h4>
+
+            <!-- Iterates over each item of said category -->
+            <ul class="condensed">
+                {% for i in category.items %}
+                    <li>{{ i.name }}</li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </section>
+
+
+    <!-- ACADEMIC AND PROFESSIONAL SOCIETIES lists and describes such societies -->
+    <section class="categories">
+        <h4>ACADEMIC AND PROFESSIONAL SOCIETIES</h4>
+
+
+        <!-- Iterates through a list of societies and displays relevant information -->
+        {% for i in societies %}
+        <p>
+            <strong>{{ i.name }}</strong>
+            ({{ i.start.strftime("%Y") }} - {% if i.finish %}{{ i.finish.strftime("%Y") }}{% endif %})
+            {% if i.chapter %}<br />{{ i.chapter }}{% endif %}
+        </p>
+        {% endfor %}
+
+    </section>
+{% endblock %}

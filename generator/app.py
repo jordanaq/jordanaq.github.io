@@ -1,7 +1,5 @@
-from flask import Flask, render_template, abort, session, redirect, url_for
-from flask_migrate import Migrate
-from flask_sqlalchemy import SQLAlchemy
-from models import School, Classes, CertCategory, Certification, SkillCategory, Skill, Society, db
+from flask import Flask, render_template
+from models import School, CertCategory, SkillCategory, Society, db
 from populate import populate_tables
 
 
@@ -22,14 +20,18 @@ db.init_app(app)
 # db.create_all()
 
 
-@app.route('/index')
+# Create the template to be rendered at /resume
+@app.route('/resume.html')
 def home():
     # Populate the tables with data hard coded or in tsv files if in debug
     if app.debug:
         populate_tables()
 
     # Render and return the html for index
-    return render_template('index.html',
+    return render_template('resume.html',
+                           # Describe the webpage
+                           description='Jordan Quinn\'s Resume. Contains information on '
+                                       'schooling, certification, skills, and societies.',
 
                            # Retrieve Schools
                            schools=School.get_all(),
@@ -45,5 +47,5 @@ def home():
 
 
 # Run the server in debug mode
-#if __name__ == "__main__":
-#    app.run(debug=True, host="127.0.0.1", port=3000)
+if __name__ == "__main__":
+    app.run(debug=True, host="127.0.0.1", port=3000)
