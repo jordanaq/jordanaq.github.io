@@ -1,5 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import null, Integer, String, Date, ForeignKey
+from sqlalchemy import null, Integer, String, Date, Boolean, ForeignKey
 from typing import Dict
 from functools import reduce
 
@@ -100,7 +100,8 @@ class Classes(db.Model):
 class CertCategory(db.Model):
     __tablename__ = 'cert_category'
     id = db.Column(Integer, primary_key=True)
-    name = db.Column(String(128), nullable=False,)
+    name = db.Column(String(128), nullable=False)
+    path = db.Column(Boolean, nullable=False, default=True)
     link = db.Column(String(512), nullable=True)
     finish = db.Column(Date, nullable=False)
     db.UniqueConstraint(name, finish)
@@ -117,12 +118,12 @@ class CertCategory(db.Model):
     def insert_value(value: Dict):
         if CertCategory.query.filter_by(name=value.get('name'), finish=value.get('finish')).first() is None:
             db.session.add(CertCategory(name=value.get('name'), link=value.get('link', null()),
-                                        finish=value.get('finish', null())))
+                                        path=value.get('path', False), finish=value.get('finish', null())))
 
     # Returns all CertCategory rows in order of ascending id number
     @staticmethod
     def get_all():
-        return CertCategory.query.order_by(CertCategory.id.asc()).all()
+        return CertCategory.query.order_by(CertCategory.path.desc(), CertCategory.finish.desc(), CertCategory.name.asc()).all()
 
 
 # Table to hold the different certifications

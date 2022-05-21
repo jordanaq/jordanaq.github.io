@@ -122,15 +122,15 @@ def populate_tables():
     # Populate the cert_category table
     insert_values(CertCategory, [
             {
-                'name': 'Educative\'s Python for Programmers', 'finish': date(2021, 1, 1),
+                'name': 'Educative\'s Python for Programmers', 'finish': date(2021, 1, 1), 'path': True,
                 'link': 'https://www.educative.io/verify-certificate/r0w3pLtnXYkROnNJKix5ZOjgZmB5u6'
             },
             {
-                'name': 'Educative\'s C++ for Programmers', 'finish': date(2021, 1, 1),
+                'name': 'Educative\'s C++ for Programmers', 'finish': date(2021, 1, 1), 'path': True,
                 'link': 'https://www.educative.io/verify-certificate/MjprXLCk4EXXB07yKIR7EoQKEq07IZ'
             },
             {
-                'name': 'DartmouthX and IMTx\'s C Programming with Linux', 'finish': date(2021, 1, 1),
+                'name': 'DartmouthX and IMTx\'s C Programming with Linux', 'finish': date(2021, 1, 1), 'path': True,
                 'link': 'https://credentials.edx.org/credentials/c938fe5ee3934afd99900886df70f473/'
             },
 

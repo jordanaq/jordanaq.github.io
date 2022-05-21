@@ -4,6 +4,7 @@ from app import app
 
 # Set the directory for the static webpage output to the build directory in the project root
 app.config['FREEZER_DESTINATION'] = '../build'
+app.config['FREEZER_STATIC_IGNORE'] = ['*.tsv']
 
 # Create a Freezer object for the resume app
 freezer = Freezer(app)
