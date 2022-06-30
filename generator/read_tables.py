@@ -3,6 +3,23 @@ from datetime import datetime as dt
 from sqlalchemy import null
 
 
+# Read certificate categories from the file designated by path 'file'
+def read_certcategory(file):
+    with open(file, 'r') as categories:
+        acc = []
+
+        # Iterate through each row in the file, using a lambda to convert each row into a dictionary and append to acc
+        for row in categories:
+            (lambda name, path, link, finish: acc.append({
+                'name': name,
+                'path': bool(int(path)),
+                'link': link if link else null(),
+                'finish': dt.strptime(finish, '%Y').date(),
+            }))(*map(lambda i: i.strip(), row.split('\t')))  # Strip each field before passing to the lambda
+
+        return acc
+
+
 # Read certificates from the file designated by path 'file'
 def read_certificates(file):
     # Open the file for reading
@@ -16,7 +33,7 @@ def read_certificates(file):
                     'name': name,
                     # Determine the appropriate CertCategory.id by querying based off the name in the cat column
                     'category': CertCategory.query.with_entities(CertCategory.id)
-                                            .filter_by(name=cat, finish=dt.strptime(finish, '%Y').date()),
+                                    .filter_by(name=cat, finish=dt.strptime(finish, '%Y').date()),
                     'finish': dt.strptime(finish, '%Y').date(),
                     'link': link,
                     'description': desc
@@ -55,5 +72,53 @@ def read_societies(file):
                 'finish': dt.strptime(finish, '%Y').date() if finish else null(),
                 'chapter': chapter
             }))(*map(lambda i: i.strip(), row.split('\t')))     # Strip each field before passing to the lambda
+
+        return acc
+
+
+# Read schools from the file designated by path 'file'
+def read_schools(file):
+    with open(file, 'r') as schools:
+        acc = []
+
+        # Iterate through each row in the file, using a lambda to convert each row into a dictionary and append to acc
+        for row in schools:
+            (lambda name, start, finish='', description='': acc.append({
+                'name': name,
+                'start': dt.strptime(start, '%m/%d/%Y').date(),
+                'finish': dt.strptime(finish, '%m/%d/%Y').date() if finish else null(),
+                'description': description if description else null()
+            }))(*map(lambda i: i.strip(), row.split('\t')))  # Strip each field before passing to the lambda
+
+        return acc
+
+
+# Read programs from the file designated by path 'file'
+def read_programs(file):
+    with open(file, 'r') as programs:
+        acc = []
+
+        # Iterate through each row in the file, using a lambda to convert each row into a dictionary and append to acc
+        for row in programs:
+            (lambda name, school: acc.append({
+                'name': name,
+                'school': school
+            }))(*map(lambda i: i.strip(), row.split('\t')))  # Strip each field before passing to the lambda
+
+        return acc
+
+
+# Read classes from the file designated by path 'file'
+def read_classes(file):
+    with open(file, 'r') as classes:
+        acc = []
+
+        # Iterate through each row in the file, using a lambda to convert each row into a dictionary and append to acc
+        for row in classes:
+            (lambda name, term, school: acc.append({
+                'name': name,
+                'term': term,
+                'school': school
+            }))(*map(lambda i: i.strip(), row.split('\t')))  # Strip each field before passing to the lambda
 
         return acc

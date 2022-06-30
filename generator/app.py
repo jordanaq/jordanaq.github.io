@@ -17,14 +17,14 @@ db.app = app
 db.init_app(app)
 
 # Create all the models as tables in the database
-# db.create_all()
+db.create_all()
 
 
 # Create the template to be rendered at /resume
 @app.route('/resume.html')
 def home():
     # Populate the tables with data hard coded or in tsv files if in debug
-    if app.debug:
+    if True:
         populate_tables()
 
     # Render and return the html for index

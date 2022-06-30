@@ -51,7 +51,7 @@ class School(db.Model):
     def insert_value(value: Dict):
         if School.query.filter_by(name=value.get('name')).first() is None:
             db.session.add(School(name=value.get('name'),
-                                  start=value.get('start', null()), finish=value.get('finish', null()),
+                                  start=value.get('start'), finish=value.get('finish', null()),
                                   description=value.get('description', null())))
 
     # Returns all schools in descending attendance date order
@@ -72,8 +72,14 @@ class Program(db.Model):
     # Takes a Dict as an argument and adds a new Program object using data from this dict
     @staticmethod
     def insert_value(value: Dict):
-        if Program.query.filter_by(school_id=value.get('school_id'), name=value.get('name')).first() is None:
-            db.session.add(Program(school_id=value.get('school_id'), name=value.get('name')))
+        # Query School table for the id of the school with name of value['school']
+        school_id = School.query.filter_by(name=value.get('school')).first().id
+
+        if school_id is None:
+            raise Exception(f'School with name {value.get("school")} not found')
+
+        if Program.query.filter_by(school_id=school_id, name=value.get('name')).first() is None:
+            db.session.add(Program(school_id=school_id, name=value.get('name')))
 
 
 # Table to hold 'class' objects
@@ -90,10 +96,14 @@ class Classes(db.Model):
     # Takes a Dict as an argument and adds a new class object using data from this dict
     @staticmethod
     def insert_value(value: Dict):
-        if i := Classes.query.filter_by(name=value.get('name'), term=value.get('term'),
-                                        school_id=value.get('school_id')).first() is None:
-            db.session.add(Classes(name=value.get('name'), term=value.get('term', null()),
-                                   school_id=value.get('school_id', null())))
+        # Query School table for the id of the school with name of value['school']
+        school_id = School.query.filter_by(name=value.get('school')).first().id
+
+        if school_id is None:
+            raise Exception(f'School with name {value.get("school")} not found')
+
+        if Classes.query.filter_by(name=value.get('name'), term=value.get('term'), school_id=school_id).first() is None:
+            db.session.add(Classes(name=value.get('name'), term=value.get('term'), school_id=school_id))
 
 
 # Table that holds categories of certifications
@@ -101,7 +111,7 @@ class CertCategory(db.Model):
     __tablename__ = 'cert_category'
     id = db.Column(Integer, primary_key=True)
     name = db.Column(String(128), nullable=False)
-    path = db.Column(Boolean, nullable=False, default=True)
+    path = db.Column(Boolean, nullable=False, default=False)
     link = db.Column(String(512), nullable=True)
     finish = db.Column(Date, nullable=False)
     db.UniqueConstraint(name, finish)
