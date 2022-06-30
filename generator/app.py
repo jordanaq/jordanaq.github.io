@@ -8,6 +8,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = f'{input("Secret Key: ")}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+
 # Configure the database URI with input username and password
 app.config['SQLALCHEMY_DATABASE_URI'] =\
     f'postgresql://{input("DB User: ")}:{input("DB Password: ")}@localhost:5432/my_info'
@@ -24,7 +25,7 @@ db.create_all()
 @app.route('/resume.html')
 def home():
     # Populate the tables with data hard coded or in tsv files if in debug
-    if True:
+    if app.debug is True:
         populate_tables()
 
     # Render and return the html for index
